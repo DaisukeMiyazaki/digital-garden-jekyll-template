@@ -1,4 +1,4 @@
-# Turns ![[ media/public/2024-03-17 15.46の画像.jpg ]] in Markdown to <img src={{ site.baseurl }}/media/public/2024-03-17%2015.46%E3%81%AE%E7%94%BB%E5%83%8F.jpg> in output HTML
+# Turns ![[ media/public/2024-03-17 15.46の画像.jpg ]] in Markdown to <img src={{ site.baseurl }}/assets/media/public/2024-03-17%2015.46%E3%81%AE%E7%94%BB%E5%83%8F.jpg> in output HTML
 
 class MediaFileGenerator < Jekyll::Generator
   safe true
@@ -14,7 +14,7 @@ class MediaFileGenerator < Jekyll::Generator
     all_docs.each do |current_note|
       # from a current file, grab media files that are included
       attached_files = current_note.content.scan(/!\[\[\s*media\/(.*?)\s*\]\]/).flatten
-      puts attached_files
+      # puts attached_files # debug
 
       # now convert these media files to image HTML tags
       attached_files.each do |file|
